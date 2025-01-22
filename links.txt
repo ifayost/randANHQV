@@ -1,0 +1,7 @@
+episode_list: https://es.wikipedia.org/wiki/Anexo:Episodios_de_Aqu%C3%AD_no_hay_quien_viva
+anhqv_s1: https://www.primevideo.com/detail/0IE8SUDA4W1Z5J97WZOF6QM1UN/ref=atv_dp_season_select_s1
+anhqv_s2: https://www.primevideo.com/detail/0STCN48OX9I360UQU4JMYDQ59T/ref=atv_dp_season_select_s2
+anhqv_s3: https://www.primevideo.com/detail/0P57M15BA120WUJQTFQD6MDH69/ref=atv_dp_season_select_s3
+anhqv_s4: https://www.primevideo.com/detail/0H7MA6UDZ3J1FVGO6HCKS5JRDP/ref=atv_dp_season_select_s4
+anhqv_s5: https://www.primevideo.com/detail/0I5PWN436VYTSNHYQOKPOIEO10/ref=atv_dp_season_select_s5
+anhqv_s6: https://www.primevideo.com/detail/0QSVY9SR74JIFFW7CBMJRE9F8V/ref=atv_dp_season_select_s6
