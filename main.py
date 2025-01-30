@@ -21,6 +21,18 @@ with open('./links.txt', 'r') as f:
     LINKS = f.read().split('\n')[:-1]
 LINKS = {l.split(': ')[0]: l.split(': ')[1] for l in LINKS}
 
+def banner():
+    banner = r'''
+                 _              _              
+  __ _ __ _ _  _(_)  _ _  ___  | |_  __ _ _  _ 
+ / _` / _` | || | | | ' \/ _ \ | ' \/ _` | || |
+ \__,_\__, |\_,_|_| |_||_\___/ |_||_\__,_|\_, |
+  __ _ _ |_(_)___ _ _   __ _(_)_ ____ _   |__/ 
+ / _` | || | / -_) ' \  \ V / \ V / _` |       
+ \__, |\_,_|_\___|_||_|  \_/|_|\_/\__,_|       
+    |_|                                        
+        '''
+    print(banner)
 
 def sigint_handler(signum, frame):
     print('\n[!] Good bye.\n')
@@ -70,7 +82,7 @@ def get_episode_link(driver, episode):
     elements = driver.find_elements(By.TAG_NAME, 'a')
     episodes = [] 
     for element in elements:
-        if element.get_attribute('automationid') == 'episodes-playbutton':
+        if element.get_attribute('data-testid') == 'episodes-playbutton':
             link = element.get_attribute('href')
             if link not in episodes:
                 episodes.append(link)
@@ -79,6 +91,8 @@ def get_episode_link(driver, episode):
 
 
 if __name__ == '__main__':
+
+    banner()
 
     files = os.listdir('./')
 
