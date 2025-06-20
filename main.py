@@ -1,3 +1,5 @@
+import pdb
+
 import os
 import signal
 import sys
@@ -93,30 +95,36 @@ def get_episode_link(driver, episode):
 
 if __name__ == '__main__':
 
+    seasons = None
+    if len(sys.argv) > 1:
+        if sys.argv[1] == '-s':
+            seasons = [int(i) for i in sys.argv[2].split(',')]
+            assert all(1 <= int(s) <= 6 for s in seasons), f"Seasons {seasons} must be between 1 and 6"
+
     banner()
 
     files = os.listdir('./')
 
     if EPISODES.split('/')[-1] not in files:
         get_episode_database(LINKS['episode_list'], EPISODES)
-    season, episode, title = get_random_episode(EPISODES)
+    season, episode, title = get_random_episode(EPISODES, seasons=seasons)
 
     password = None
     if CREDS.split('/')[-1] not in files:
         password = save_credentials(CREDS)
     username, password = read_credentials(password, CREDS)
      
-    driver = webdriver.Safari()
-    driver.implicitly_wait(10)
-
-    reject_cookies(driver)
-    driver.get(LINKS['anhqv_s'+str(season)])
-    login(driver, username, password)
-    time.sleep(7)
-    episode_link = get_episode_link(driver, episode)
-    driver.get(episode_link)
-    time.sleep(0.5)
-    driver.fullscreen_window()
-
+    # driver = webdriver.Safari()
+    # driver.implicitly_wait(10)
+    #
+    # reject_cookies(driver)
+    # driver.get(LINKS['anhqv_s'+str(season)])
+    # login(driver, username, password)
+    # time.sleep(7)
+    # episode_link = get_episode_link(driver, episode)
+    # driver.get(episode_link)
+    # time.sleep(0.5)
+    # driver.fullscreen_window()
+    #
     while True:
         pass

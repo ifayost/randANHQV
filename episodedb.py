@@ -41,8 +41,13 @@ def get_episode_database(link, filename='./episodes.csv'):
     final_table.to_csv(filename, index=False)
 
 
-def get_random_episode(filename='./episodes.csv', verbose=True):
-    episode = pd.read_csv(filename).sample(n=1).values[0]
+def get_random_episode(filename='./episodes.csv', seasons=None, verbose=True):
+    episodes = pd.read_csv(filename)
+    if seasons is None:
+        episode = episodes.sample(n=1).values[0]
+    else:
+        episode = episodes[episodes.Temporada.isin(seasons)].sample(n=1).values[0]
+
     if verbose:
         print(f'\n[+]  T{episode[0]} E{episode[1]} - {episode[2][1:-1]}\n')
     return episode
