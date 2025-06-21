@@ -44,10 +44,6 @@ def get_episode_database(link, filename='./episodes.csv'):
 
 def compute_probs(episodes, seasons=None, normalize=True, power=1, p_season=1):
     episodes = episodes.copy()
-    if 'episode_count' not in episodes.columns:
-        episodes['episode_count'] = 0
-    if 'season_count' not in episodes.columns:
-        episodes['season_count'] = 0
 
     if seasons is not None:
         episodes = episodes.loc[episodes.Season.isin(seasons)]
