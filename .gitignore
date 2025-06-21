@@ -2,3 +2,4 @@ credentials
 *.csv
 .venv
 __pycache__
+*.html

@@ -98,8 +98,6 @@ def get_episode_link(driver, episode):
 
 if __name__ == '__main__':
 
-    print(banner())
-
     parser = argparse.ArgumentParser(
             prog='randANHQV',
             formatter_class=argparse.RawDescriptionHelpFormatter,
@@ -113,6 +111,8 @@ if __name__ == '__main__':
     parser.add_argument('--reset-stats', action='store_true', help='Reset episode statistics before selection')
     args = parser.parse_args()
     seasons = args.seasons
+
+    print(banner())
     
     if args.reset_stats:
         reset_statistics(filename=EPISODES)
@@ -137,25 +137,23 @@ if __name__ == '__main__':
             p_season=POWER_SEASON
             )
 
-    # password = None
-    # if CREDS.split('/')[-1] not in files:
-    #     password = save_credentials(CREDS)
-    # username, password = read_credentials(password, CREDS)
+    password = None
+    if CREDS.split('/')[-1] not in files:
+        password = save_credentials(CREDS)
+    username, password = read_credentials(password, CREDS)
      
-    # driver = webdriver.Safari()
-    # driver.implicitly_wait(10)
-    #
-    # reject_cookies(driver)
-    # driver.get(LINKS['anhqv_s'+str(season)])
-    # login(driver, username, password)
-    # time.sleep(7)
-    # episode_link = get_episode_link(driver, episode)
-    # driver.get(episode_link)
-    # time.sleep(0.5)
-    # driver.fullscreen_window()
-    #
+    driver = webdriver.Safari()
+    driver.implicitly_wait(10)
+
+    reject_cookies(driver)
+    driver.get(LINKS['anhqv_s'+str(season)])
+    login(driver, username, password)
+    time.sleep(7)
+    episode_link = get_episode_link(driver, episode)
+    driver.get(episode_link)
+    time.sleep(0.5)
+    driver.fullscreen_window()
+
     
     update_statistics(episode, season, filename=EPISODES)
 
-    # while True:
-    #     pass
