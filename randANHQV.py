@@ -137,25 +137,25 @@ if __name__ == '__main__':
             p_season=POWER_SEASON
             )
 
-    password = None
-    if CREDS.split('/')[-1] not in files:
-        password = save_credentials(CREDS)
-    username, password = read_credentials(password, CREDS)
+    # password = None
+    # if CREDS.split('/')[-1] not in files:
+    #     password = save_credentials(CREDS)
+    # username, password = read_credentials(password, CREDS)
      
-    driver = webdriver.Safari()
-    driver.implicitly_wait(10)
-
-    reject_cookies(driver)
-    driver.get(LINKS['anhqv_s'+str(season)])
-    login(driver, username, password)
-    time.sleep(7)
-    episode_link = get_episode_link(driver, episode)
-    driver.get(episode_link)
-    time.sleep(0.5)
-    driver.fullscreen_window()
-
+    # driver = webdriver.Safari()
+    # driver.implicitly_wait(10)
+    #
+    # reject_cookies(driver)
+    # driver.get(LINKS['anhqv_s'+str(season)])
+    # login(driver, username, password)
+    # time.sleep(7)
+    # episode_link = get_episode_link(driver, episode)
+    # driver.get(episode_link)
+    # time.sleep(0.5)
+    # driver.fullscreen_window()
+    #
     
     update_statistics(episode, season, filename=EPISODES)
 
-    while True:
-        pass
+    # while True:
+    #     pass
