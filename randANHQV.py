@@ -41,7 +41,7 @@ def banner():
     return banner
 
 def sigint_handler(signum, frame):
-    print('\n[!] Good bye.\n')
+    print('\n\n[!] Good bye.\n')
     sys.exit(0)
 signal.signal(signal.SIGINT, sigint_handler)
 
