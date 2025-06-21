@@ -153,7 +153,8 @@ if __name__ == '__main__':
     driver.get(episode_link)
     time.sleep(0.5)
     driver.fullscreen_window()
-
     
     update_statistics(episode, season, filename=EPISODES)
 
+    while True:
+        pass

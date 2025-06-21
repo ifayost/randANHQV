@@ -90,4 +90,4 @@ def update_statistics(episode_number, season_number, filename='./episodes.csv', 
     episodes.loc[season_mask, 'season_count'] += 1
     episodes.to_csv(filename, index=False)
     if verbose:
-        print(f"[+]  Updated statistics for S{season_number} E{episode_number}\n")
+        print(f"\n[+]  Updated statistics for S{season_number} E{episode_number}\n")
