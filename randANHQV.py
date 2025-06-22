@@ -128,20 +128,30 @@ if __name__ == '__main__':
     if EPISODES.split('/')[-1] not in files:
         get_episode_database(LINKS['episode_list'], EPISODES)
 
-    season, episode, title = get_random_episode(
-            EPISODES,
-            seasons=seasons,
-            normalize=not args.nonorm,
-            weights=not args.uniform,
-            power=POWER,
-            p_season=POWER_SEASON
-            )
+    done = False
+
+    while not done:
+        season, episode, title = get_random_episode(
+                EPISODES,
+                seasons=seasons,
+                normalize=not args.nonorm,
+                weights=not args.uniform,
+                power=POWER,
+                p_season=POWER_SEASON
+                )
+        selection = input('[Press "c" to continue, "n" to select another episode]\n> ')
+        if selection == 'c':
+            done = True
+        elif selection == 'n':
+            pass
+        else:
+            print(f'\n[!]  Wrong option {selection}. Press "c" to continue or "n" to select another episode')
 
     password = None
     if CREDS.split('/')[-1] not in files:
         password = save_credentials(CREDS)
     username, password = read_credentials(password, CREDS)
-     
+
     driver = webdriver.Safari()
     driver.implicitly_wait(10)
 
